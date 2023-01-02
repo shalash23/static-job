@@ -25,7 +25,7 @@ const LayoutList = () => {
     );
   });
 
-  return <div>{cards}</div>;
+  return <>{cards}</>;
 };
 
 export default LayoutList;

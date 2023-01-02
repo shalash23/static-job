@@ -34,8 +34,8 @@ const Card = ({
       <img
         src={logo}
         alt={name}
-        height="60px"
-        width="60px"
+        height="55px"
+        width="55px"
         style={{
           transform: "translate(-10%,-85%)",
           position: "absolute",

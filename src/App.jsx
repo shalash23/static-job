@@ -24,7 +24,11 @@ const App = () => {
             backgroundRepeat: "no-repeat",
           }}
         ></Box>
-        <Container>
+        <Container
+          sx={{
+            px: 3,
+          }}
+        >
           <LayoutList />
         </Container>
       </ThemeProvider>
