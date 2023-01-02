@@ -156,9 +156,9 @@ const CardDesktop = ({
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "flex-start",
+          justifyContent: "flex-end",
           gap: 2,
-          ml: 12,
+          ml: "auto",
           mr: 2,
         }}
       >

@@ -1,12 +1,17 @@
 import React from "react";
 import { Box, CssBaseline, useMediaQuery, Container } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import {
+  createTheme,
+  ThemeProvider,
+  responsiveFontSizes,
+} from "@mui/material/styles";
 import { appTheme } from "./theme";
 import images from "./assets/index";
 import LayoutList from "./LayoutList";
 
 const App = () => {
-  const theme = createTheme(appTheme);
+  let theme = createTheme(appTheme);
+  theme = responsiveFontSizes(theme);
   const matches = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
