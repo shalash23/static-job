@@ -25,8 +25,9 @@ const App = () => {
           }}
         ></Box>
         <Container
+          fixed
           sx={{
-            px: 3,
+            px: 4,
           }}
         >
           <LayoutList />

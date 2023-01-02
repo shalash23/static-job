@@ -1,9 +1,17 @@
 import React from "react";
-import { Paper, Typography, Box, Chip, Divider, Button } from "@mui/material";
+import {
+  Paper,
+  Typography,
+  Box,
+  Chip,
+  Divider,
+  Button,
+  Container,
+} from "@mui/material";
 import { useTheme } from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 
-const Card = ({
+const CardDesktop = ({
   name,
   logo,
   newItem,
@@ -22,120 +30,136 @@ const Card = ({
     <Paper
       elevation={24}
       sx={{
-        padding: 3,
-        mt: 12,
-        mb: 5,
-        borderLeft: featured
-          ? `6px solid ${theme.palette.primary.main}`
+        mt: 8,
+        mb: 3,
+        boxShadow: featured
+          ? `-8px 0px 0px 0px ${theme.palette.primary.main}`
           : "none",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+        gap: 4,
+        alignContent: "center",
+        p: 3,
       }}
     >
       <img
         src={logo}
         alt={name}
-        height="55px"
-        width="55px"
+        height="80px"
+        width="80px"
         style={{
-          transform: "translate(-10%,-85%)",
-          position: "absolute",
+          marginLeft: "2em",
         }}
       />
-
       <Box
         sx={{
           display: "flex",
-          alignItems: "center",
-          justifyContent: "flex-start",
-          mt: 2,
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          alignContent: "center",
+          ml: 1,
+          minWidth: "max-content",
         }}
       >
-        <Typography
-          component="h2"
-          variant="subtitle1"
-          color={theme.palette.primary.main}
+        <Box
           sx={{
-            mt: 1,
-            mr: 3,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          {name}
-        </Typography>
-        {newItem && (
-          <Chip
-            label="NEW!"
-            color="primary"
+          <Typography
+            component="h2"
+            variant="subtitle1"
+            color={theme.palette.primary.main}
             sx={{
-              color: "white",
-              fontSize: 14,
-              textAlign: "center",
-              py: 1,
               mr: 2,
             }}
-            size={"small"}
-          />
-        )}
-        {featured && (
-          <Chip
-            label="FEATURED"
+          >
+            {name}
+          </Typography>
+          {newItem && (
+            <Chip
+              label="NEW!"
+              color="primary"
+              sx={{
+                color: "white",
+                fontSize: 14,
+                textAlign: "center",
+                py: 1,
+                mr: 2,
+              }}
+              size={"small"}
+            />
+          )}
+          {featured && (
+            <Chip
+              label="FEATURED"
+              sx={{
+                color: "white",
+                fontSize: 14,
+                textAlign: "center",
+                py: 1,
+                backgroundColor: "hsl(180, 14%, 20%)",
+              }}
+              size={"small"}
+            />
+          )}
+        </Box>
+        <Typography
+          variant="body1"
+          component="h3"
+          noWrap={true}
+          sx={{
+            fontWeight: "700",
+            my: 1,
+          }}
+        >
+          {position}
+        </Typography>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            // alignContent: "center",
+            justifyContent: "space-between",
+            gap: 1,
+            minWidth: "100%",
+          }}
+        >
+          <Typography variant="subtitle2" component="p" color="secondary">
+            {postedAt}
+          </Typography>
+          <FiberManualRecordIcon
+            color="secondary"
             sx={{
-              color: "white",
-              fontSize: 14,
-              textAlign: "center",
-              py: 1,
-              backgroundColor: "hsl(180, 14%, 20%)",
+              fontSize: 7,
             }}
-            size={"small"}
           />
-        )}
+          <Typography variant="subtitle2" component="p" color="secondary">
+            {contract}
+          </Typography>
+          <FiberManualRecordIcon
+            color="secondary"
+            sx={{
+              fontSize: 8,
+            }}
+          />
+          <Typography variant="subtitle2" component="p" color="secondary">
+            {location}
+          </Typography>
+        </Box>
       </Box>
-      <Typography
-        variant="body1"
-        component="h3"
-        sx={{
-          mt: 2,
-          fontWeight: "700",
-        }}
-      >
-        {position}
-      </Typography>
       <Box
         sx={{
-          display: "flex",
-          alignItems: "center",
-          alignContent: "center",
-          gap: "0.5em",
-          my: 2,
-        }}
-      >
-        <Typography variant="subtitle2" component="p" color="secondary">
-          {postedAt}
-        </Typography>
-        <FiberManualRecordIcon
-          color="secondary"
-          sx={{
-            fontSize: 8,
-          }}
-        />
-        <Typography variant="subtitle2" component="p" color="secondary">
-          {contract}
-        </Typography>
-        <FiberManualRecordIcon
-          color="secondary"
-          sx={{
-            fontSize: 8,
-          }}
-        />
-        <Typography variant="subtitle2" component="p" color="secondary">
-          {location}
-        </Typography>
-      </Box>
-      <Divider />
-      <Box
-        sx={{
-          mt: 2,
           display: "flex",
           flexWrap: "wrap",
-          gap: 1,
+          justifyContent: "flex-start",
+          gap: 2,
+          ml: 12,
+          mr: 2,
         }}
       >
         <Button
@@ -213,4 +237,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default CardDesktop;

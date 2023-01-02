@@ -7,7 +7,7 @@ import CardDesktop from "./components/Layouts/CardDesktop";
 
 const LayoutList = () => {
   const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.down("sm"));
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   const cardMobile = data.map((item) => {
     const { logo } = item;
     return (
