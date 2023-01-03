@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Paper, Typography, Box, Chip, Divider, Button } from "@mui/material";
 import { useTheme } from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import { motion } from "framer-motion";
+import { FilterContext } from "../../FilterContext";
 
 const Card = ({
   name,
@@ -18,16 +20,22 @@ const Card = ({
   tools,
 }) => {
   const theme = useTheme();
+  const [_, setFilters] = useContext(FilterContext);
   return (
     <Paper
-      elevation={24}
+      component={motion.div}
+      layout
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -100 }}
       sx={{
         padding: 3,
         mt: 12,
         mb: 5,
-        borderLeft: featured
-          ? `6px solid ${theme.palette.primary.main}`
-          : "none",
+
+        boxShadow: featured
+          ? `-8px 0px 0px 0px ${theme.palette.primary.main}, 0px 0px 27px 1.9px rgba(0,0,0,0.28)`
+          : "0px 0px 28px 1.5px rgba(0,0,0,0.4)",
       }}
     >
       <img
@@ -148,6 +156,18 @@ const Card = ({
             fontWeight: "700",
             color: theme.palette.primary.main,
             backgroundColor: "hsl(180, 31%, 95%)",
+            "&:focus": {
+              color: "white",
+            },
+            "&:hover": {
+              color: "white",
+            },
+            "&:active": {
+              color: "white",
+            },
+          }}
+          onClick={(e) => {
+            setFilters((prevFilters) => [...prevFilters, e.target.textContent]);
           }}
         >
           {role}
@@ -162,6 +182,18 @@ const Card = ({
             fontWeight: "700",
             color: theme.palette.primary.main,
             backgroundColor: "hsl(180, 31%, 95%)",
+            "&:focus": {
+              color: "white",
+            },
+            "&:hover": {
+              color: "white",
+            },
+            "&:active": {
+              color: "white",
+            },
+          }}
+          onClick={(e) => {
+            setFilters((prevFilters) => [...prevFilters, e.target.textContent]);
           }}
         >
           {level}
@@ -180,6 +212,21 @@ const Card = ({
                   fontWeight: "700",
                   color: theme.palette.primary.main,
                   backgroundColor: "hsl(180, 31%, 95%)",
+                  "&:focus": {
+                    color: "white",
+                  },
+                  "&:hover": {
+                    color: "white",
+                  },
+                  "&:active": {
+                    color: "white",
+                  },
+                }}
+                onClick={(e) => {
+                  setFilters((prevFilters) => [
+                    ...prevFilters,
+                    e.target.textContent,
+                  ]);
                 }}
               >
                 {language}
@@ -201,6 +248,21 @@ const Card = ({
                   fontWeight: "700",
                   color: theme.palette.primary.main,
                   backgroundColor: "hsl(180, 31%, 95%)",
+                  "&:focus": {
+                    color: "white",
+                  },
+                  "&:hover": {
+                    color: "white",
+                  },
+                  "&:active": {
+                    color: "white",
+                  },
+                }}
+                onClick={(e) => {
+                  setFilters((prevFilters) => [
+                    ...prevFilters,
+                    e.target.textContent,
+                  ]);
                 }}
               >
                 {tool}

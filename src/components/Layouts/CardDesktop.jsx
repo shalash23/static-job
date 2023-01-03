@@ -1,15 +1,9 @@
-import React from "react";
-import {
-  Paper,
-  Typography,
-  Box,
-  Chip,
-  Divider,
-  Button,
-  Container,
-} from "@mui/material";
+import React, { useContext } from "react";
+import { Paper, Typography, Box, Chip, Button } from "@mui/material";
 import { useTheme } from "@mui/material";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import { motion } from "framer-motion";
+import { FilterContext } from "../../FilterContext";
 
 const CardDesktop = ({
   name,
@@ -26,15 +20,18 @@ const CardDesktop = ({
   tools,
 }) => {
   const theme = useTheme();
+  const [_, setFilters] = useContext(FilterContext);
   return (
     <Paper
-      elevation={24}
+      component={motion.div}
+      layout
       sx={{
         mt: 8,
         mb: 3,
         boxShadow: featured
-          ? `-8px 0px 0px 0px ${theme.palette.primary.main}`
-          : "none",
+          ? `-8px 0px 0px 0px ${theme.palette.primary.main}, 0px 0px 27px 1.9px rgba(0,0,0,0.28)`
+          : "0px 0px 28px 1.5px rgba(0,0,0,0.4)",
+
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-start",
@@ -42,6 +39,7 @@ const CardDesktop = ({
         alignContent: "center",
         p: 3,
       }}
+      elevation={24}
     >
       <img
         src={logo}
@@ -172,6 +170,18 @@ const CardDesktop = ({
             fontWeight: "700",
             color: theme.palette.primary.main,
             backgroundColor: "hsl(180, 31%, 95%)",
+            "&:focus": {
+              color: "white",
+            },
+            "&:hover": {
+              color: "white",
+            },
+            "&:active": {
+              color: "white",
+            },
+          }}
+          onClick={(e) => {
+            setFilters((prevFilters) => [...prevFilters, e.target.textContent]);
           }}
         >
           {role}
@@ -186,6 +196,18 @@ const CardDesktop = ({
             fontWeight: "700",
             color: theme.palette.primary.main,
             backgroundColor: "hsl(180, 31%, 95%)",
+            "&:focus": {
+              color: "white",
+            },
+            "&:hover": {
+              color: "white",
+            },
+            "&:active": {
+              color: "white",
+            },
+          }}
+          onClick={(e) => {
+            setFilters((prevFilters) => [...prevFilters, e.target.textContent]);
           }}
         >
           {level}
@@ -204,6 +226,21 @@ const CardDesktop = ({
                   fontWeight: "700",
                   color: theme.palette.primary.main,
                   backgroundColor: "hsl(180, 31%, 95%)",
+                  "&:focus": {
+                    color: "white",
+                  },
+                  "&:hover": {
+                    color: "white",
+                  },
+                  "&:active": {
+                    color: "white",
+                  },
+                }}
+                onClick={(e) => {
+                  setFilters((prevFilters) => [
+                    ...prevFilters,
+                    e.target.textContent,
+                  ]);
                 }}
               >
                 {language}
@@ -225,6 +262,21 @@ const CardDesktop = ({
                   fontWeight: "700",
                   color: theme.palette.primary.main,
                   backgroundColor: "hsl(180, 31%, 95%)",
+                  "&:focus": {
+                    color: "white",
+                  },
+                  "&:hover": {
+                    color: "white",
+                  },
+                  "&:active": {
+                    color: "white",
+                  },
+                }}
+                onClick={(e) => {
+                  setFilters((prevFilters) => [
+                    ...prevFilters,
+                    e.target.textContent,
+                  ]);
                 }}
               >
                 {tool}

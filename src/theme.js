@@ -26,7 +26,7 @@ export const appTheme = {
   },
   typography: {
     fontFamily: "League Spartan",
-    fontSize: 15,
+    fontSize: 16,
     fontWeightLight: 500,
     fontWeightRegular: 500,
   },
