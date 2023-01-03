@@ -1,13 +1,13 @@
 import { createContext, useState, useEffect } from "react";
-import data from "../../data.json";
+import data from "./data.json";
 
 export const FilterContext = createContext();
 export const JobsContext = createContext();
 export const FilteredState = createContext();
 
 const FilterProvider = ({ children }) => {
-  const [jobsData, setJobsData] = useState(data);
   const [filteredState, setFilteredState] = useState([]);
+  const [jobsData, setJobsData] = useState(data);
   const [filters, setFilters] = useState([]);
 
   useEffect(() => {
