@@ -55,7 +55,12 @@ const App = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -100 }}
                 initial={{ opacity: 0, y: 100 }}
-                transition={{ type: "spring", stifness: 80 }}
+                transition={{
+                  type: "spring",
+                  stifness: 80,
+                  mass: 0.5,
+                  bounce: 0.2,
+                }}
                 sx={{
                   display: "flex",
                   flexWrap: "wrap",

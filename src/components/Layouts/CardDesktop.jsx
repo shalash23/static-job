@@ -30,9 +30,7 @@ const CardDesktop = ({
       exit={{ opacity: 0, y: -50 }}
       transition={{
         type: "spring",
-        duration: 0.8,
         stifness: 50,
-        default: { ease: "linear" },
       }}
       sx={{
         mt: 8,

@@ -28,6 +28,10 @@ const Card = ({
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -100 }}
+      transition={{
+        type: "spring",
+        stifness: 50,
+      }}
       sx={{
         padding: 3,
         mt: 12,
