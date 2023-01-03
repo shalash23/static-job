@@ -48,20 +48,22 @@ const LayoutList = () => {
     const { logo } = item;
     return (
       <React.Fragment key={item.id}>
-        <CardDesktop
-          name={item.company}
-          logo={images[logo]}
-          newItem={item.new}
-          featured={item.featured}
-          position={item.position}
-          role={item.role}
-          level={item.level}
-          postedAt={item.postedAt}
-          contract={item.contract}
-          location={item.location}
-          languages={item.languages}
-          tools={item.tools}
-        />
+        <AnimatePresence mode="popLayout">
+          <CardDesktop
+            name={item.company}
+            logo={images[logo]}
+            newItem={item.new}
+            featured={item.featured}
+            position={item.position}
+            role={item.role}
+            level={item.level}
+            postedAt={item.postedAt}
+            contract={item.contract}
+            location={item.location}
+            languages={item.languages}
+            tools={item.tools}
+          />
+        </AnimatePresence>
       </React.Fragment>
     );
   });

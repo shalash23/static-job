@@ -49,61 +49,70 @@ const App = () => {
           }}
         >
           {filteredState.length > 0 && (
-            <Paper
-              sx={{
-                display: "flex",
-                flexWrap: "wrap",
-                mt: -2,
-                p: 4,
-                gap: 2,
-              }}
-            >
-              <AnimatePresence>
-                {Array.from(filteredItems).map((items) => {
-                  return (
-                    <React.Fragment key={items}>
-                      <Chip
-                        label={items}
-                        component={motion.div}
-                        initial={{ opacity: 0.4, y: 100 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -100 }}
-                        transition={{
-                          type: "spring",
-                          stifness: 150,
-                        }}
-                        layout
-                        variant="outlined"
-                        size="medium"
-                        sx={{
-                          fontSize: 14,
-                          textAlign: "center",
-                          fontWeight: "700",
-                          color: theme.palette.primary.main,
-                          backgroundColor: "hsl(180, 31%, 95%)",
-                          "&:focus": {
-                            color: "white",
-                          },
-                          "&:hover": {
-                            color: "white",
-                          },
-                          "&:active": {
-                            color: "white",
-                          },
-                        }}
-                        onDelete={(e) => {
-                          const itemTarget =
-                            e.target.closest("div").textContent;
-                          setFilteredState((items) => {
-                            return items.filter((item) => item !== itemTarget);
-                          });
-                        }}
-                      />
-                    </React.Fragment>
-                  );
-                })}
-              </AnimatePresence>
-            </Paper>
+            <AnimatePresence mode="popLayout">
+              <Paper
+                component={motion.div}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -100 }}
+                initial={{ opacity: 0, y: 100 }}
+                transition={{ type: "spring", stifness: 80 }}
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  mt: -2,
+                  p: 4,
+                  gap: 2,
+                }}
+              >
+                <AnimatePresence mode="popLayout">
+                  {Array.from(filteredItems).map((items) => {
+                    return (
+                      <React.Fragment key={items}>
+                        <Chip
+                          label={items}
+                          component={motion.div}
+                          initial={{ opacity: 0.4, y: 100 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -100 }}
+                          transition={{
+                            type: "spring",
+                            stifness: 150,
+                          }}
+                          layout
+                          variant="outlined"
+                          size="medium"
+                          sx={{
+                            fontSize: 14,
+                            textAlign: "center",
+                            fontWeight: "700",
+                            color: theme.palette.primary.main,
+                            backgroundColor: "hsl(180, 31%, 95%)",
+                            "&:focus": {
+                              color: "white",
+                            },
+                            "&:hover": {
+                              color: "white",
+                            },
+                            "&:active": {
+                              color: "white",
+                            },
+                          }}
+                          onDelete={(e) => {
+                            const itemTarget =
+                              e.target.closest("div").textContent;
+                            setFilteredState((items) => {
+                              return items.filter(
+                                (item) => item !== itemTarget
+                              );
+                            });
+                          }}
+                        />
+                      </React.Fragment>
+                    );
+                  })}
+                </AnimatePresence>
+              </Paper>
+            </AnimatePresence>
           )}
           <LayoutList />
         </Container>
